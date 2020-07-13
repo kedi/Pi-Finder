@@ -1,0 +1,58 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+}
+
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: gray !important;
+  opacity: 1 !important; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: gray !important;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: gray !important;
+}
+
+*:focus {
+  outline: 0 !important;
+} 
+
+.searchInput{
+  margin-top: 2%;
+  text-align: center;
+  vertical-align: middle;
+  
+}
+
+.searchBar {
+  font-size: 90px;
+  text-align: center;
+  color: gray;
+}
+
+.number-is-in p{
+  margin-top: 10%;
+  color: gray;
+  visibility: hidden;
+  display: inline-block;
+  font-size: 20px;
+}
+
+.number-is-in{
+  margin-left: 7%;
+}
+
+.pinumbers p{
+  display: inline-block;
+  font-size: 70px;
+}
+
+.pinumbers{
+  margin-left: 7%;
+  margin-top: 1%;
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PI Checker</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+  <link rel="stylesheet" href="../public/style.css">
+
+</head>
+<body>
+    <div class="searchInput">
+        <input class = "searchBar" type="text" placeholder="Search in Pi..." style=" background-color: transparent; border-color: transparent;">
+    </div>
+
+    <div class="number-is-in">
+        <p></p>
+        <p style="color: #F5CA00;"></p>
+    </div>
+
+    <div class="pinumbers">
+        <p style="color: white"></p>
+        <p style="color: #F5CA00;"></p>
+        <p style="color: white;"></p>
+    </div>
+
+</body>
+
+<script>
+
+    const input = document.querySelector("input")
+    let p = document.querySelectorAll(".number-is-in p")[0]
+    let p_ = document.querySelectorAll(".number-is-in p")[1]
+
+    let beforeHand = document.querySelectorAll(".pinumbers p")[0]
+    let piNumbers = document.querySelectorAll(".pinumbers p")[1]
+    let piNumbers_ = document.querySelectorAll(".pinumbers p")[2]
+
+    input.addEventListener("input", (a) => {
+
+        if(a.target.value === "") {
+
+            allInvisible()
+            p.style.visibility = "hidden"
+
+        } 
+
+        fetch(`http://localhost:3000/get/${a.target.value}`)
+        .then(response => response.json())
+        .then(data => {
+
+            if(data.indexOf > 0){
+
+                p.innerHTML = `Found starting at the digit:`
+                p_.innerHTML = ` ${data.indexOf}.`
+                piNumbers.innerHTML = a.target.value
+                piNumbers_.innerHTML = data.strAfter
+                beforeHand.innerHTML = data.reverse
+                allVisible()
+
+            }else{
+
+                allInvisible()
+
+            }
+
+        });
+    })
+
+    function allInvisible(){
+
+        p.style.visibility = "visible"
+        p.innerHTML = "Couldn't find in the first million digits of Pi."
+        p_.style.visibility = "hidden"
+        piNumbers.style.visibility = "hidden"
+        piNumbers_.style.visibility = "hidden"
+        beforeHand.style.visibility = "hidden"
+
+    }
+
+    function allVisible(){
+
+        p.style.visibility = "visible"
+        p_.style.visibility = "visible"
+        piNumbers.style.visibility = "visible"
+        piNumbers_.style.visibility = "visible"
+        beforeHand.style.visibility = "visible"
+
+    }
+</script>
+</html>
