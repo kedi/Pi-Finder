@@ -6,7 +6,7 @@ Pi-Finder is a tool that allows you to get the index of a specific integer in th
 The path of the request is `/get/number` and the query number is the string that you want tool to find in Pi Number and return you with the index of that number. For an example, 
 if you want to find `1415` on the tool, it would return index as **1** because the first digits of the Pi Number is `3,1415...`.
 
-The visualized part is rendered as `ejs` whichch gives better user experience. If you would like to host it locally, download the code and then you would need:
+The visualized part is rendered as `ejs` which gives better user experience. If you would like to host it locally, download the code and then you would need:
 
 - NodeJS & NPM installed.
 
